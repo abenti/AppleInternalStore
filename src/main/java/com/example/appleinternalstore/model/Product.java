@@ -16,11 +16,11 @@ public class Product {
     private float productPrice;
 
     @Column(nullable=false, unique = true)
-    @NotBlank(message = "* Product Description Price is required")
+    @NotBlank(message = "* Product Description is required")
     private String productDescription;
 
     @Column(nullable=false)
-    @NotBlank(message = "* Product Images is required")
+    @NotBlank(message = "* Product Images are required")
     @Size(max=3)
     private List<String> productImages;
 
