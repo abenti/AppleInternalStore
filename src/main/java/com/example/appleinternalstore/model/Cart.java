@@ -12,4 +12,5 @@ import java.util.List;
     @Column(nullable=false, unique=true)
     @NotBlank(message = "* User is required")
     private User user;
+
 }
