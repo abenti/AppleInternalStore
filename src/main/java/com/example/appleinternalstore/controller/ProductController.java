@@ -26,6 +26,7 @@ public class ProductController {
         product.setProductName("Iphone 13 Prox Max");
         ArrayList list = new ArrayList();
         list.add(product);
+//        list.add(product);
         return list;
     }
 
