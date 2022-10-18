@@ -17,7 +17,7 @@ public class ProductRepositoryTest {
     ProductRepository repository;
 
     @Test
-    public void testRepository()
+    public void shouldReturnProductsFilteredByCategoryFromRepository()
     {
         Product product = new Product();
         product.setProductName("Iphone 13 Prox Max");

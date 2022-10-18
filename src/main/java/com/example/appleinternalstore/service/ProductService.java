@@ -15,10 +15,11 @@ public class ProductService {
         repository = productRepository;
     }
 
-
     public List<Product> getProductsByCategory(String category){
-        List<Product> response = repository.findByProductCategory(category);
-//        System.out.println(response)
-        return response;
+        return repository.findByProductCategory(category);
+    }
+
+    public List<Product> getAllProducts(){
+        return repository.findAll();
     }
 }
