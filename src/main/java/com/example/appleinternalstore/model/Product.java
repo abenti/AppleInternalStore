@@ -15,6 +15,10 @@ public class Product {
     @NotBlank(message = "* Product Name is required")
     private String productName;
 
+    @ManyToOne(cascade = { CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH })
+    @JoinColumn(name="cart_id", nullable=false)
+    private Cart cart;
+
     @Column(nullable = false)
     @NotBlank(message = "* Product Price is required")
     private float productPrice;
@@ -35,6 +39,14 @@ public class Product {
     @Column(nullable = false)
     @NotBlank(message = "* Product Discount is required")
     private float productDiscount;
+
+    public Cart getCart() {
+        return cart;
+    }
+
+    public void setCart(Cart cart) {
+        this.cart = cart;
+    }
 
     public int getId() {
         return id;

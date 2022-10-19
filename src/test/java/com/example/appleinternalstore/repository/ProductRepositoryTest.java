@@ -1,5 +1,6 @@
 package com.example.appleinternalstore.repository;
 
+import com.example.appleinternalstore.model.Cart;
 import com.example.appleinternalstore.model.Product;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,12 @@ public class ProductRepositoryTest {
         product.setProductCategory("iphone");
         product.setProductImages("image to iphone");
         product.setProductDiscount(0.2f);
+        Cart cart = new Cart();
+        List<Product> productList = new ArrayList<>();
+        productList.add(product);
+        cart.setProductList(productList);
+        cart.setUserId("1234");
+        product.setCart(cart);
 
         repository.save(product);
 
