@@ -1,42 +1,34 @@
 package com.example.appleinternalstore.model;
 
-import javax.persistence.*;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
-@Entity
-@Table(name = "product")
+@Document("product")
 public class Product {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @Column(nullable = false)
     @NotBlank(message = "* Product Name is required")
     private String productName;
 
-    @ManyToOne(cascade = { CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH })
-    @JoinColumn(name="cart_id", nullable=false)
     private Cart cart;
 
-    @Column(nullable = false)
     @NotBlank(message = "* Product Price is required")
     private float productPrice;
 
-    @Column(nullable = false)
     @NotBlank(message = "* Product Description is required")
     private String productDescription;
 
-    @Column(nullable = false)
     @NotBlank(message = "* Product Images are required")
     @Size(max = 3)
     private String productImages;
 
-    @Column(nullable = false)
     @NotBlank(message = "* Product Category is required")
     private String productCategory;
 
-    @Column(nullable = false)
     @NotBlank(message = "* Product Discount is required")
     private float productDiscount;
 

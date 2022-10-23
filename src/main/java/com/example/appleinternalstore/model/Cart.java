@@ -1,22 +1,18 @@
 package com.example.appleinternalstore.model;
 
-import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import java.util.List;
 
-@Entity
-@Table(name = "cart")
+@Document("cart")
 public class Cart {
 
    @Id
-   @Column(name = "cart_id")
-   @GeneratedValue(strategy = GenerationType.AUTO)
    private int id;
 
-   @OneToMany(mappedBy="cart")
    private List<Product> productList;
 
-   @Column(name="user_id")
    private String userId;
 
    public int getId() {

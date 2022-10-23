@@ -1,22 +1,17 @@
 package com.example.appleinternalstore.model;
 
-import javax.persistence.*;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-@Entity
-@Table(name = "order_product")
+@Document("order_product")
 public class OrderProduct {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @Column
     private String productId;
 
-    @ManyToOne(cascade = { CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH })
-    @JoinColumn(name="order_id", nullable=false)
     private Order order;
 
-    @Column
     private int quantity;
 
     public Order getOrder() {

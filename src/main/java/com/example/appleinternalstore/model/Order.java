@@ -1,27 +1,22 @@
 package com.example.appleinternalstore.model;
 
-import javax.persistence.*;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import java.util.List;
 
-@Entity
-@Table(name = "order")
+@Document("order")
 public class Order {
 
     @Id
-    @Column(name = "order_id")
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @Column
     private String userId;
 
-    @OneToMany(mappedBy="order")
     private List<OrderProduct> orderProducts;
 
-    @Column
     private float amount;
 
-    @Column
     private String status;
 
     public List<OrderProduct> getOrderProducts() {
