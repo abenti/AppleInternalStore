@@ -6,14 +6,14 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.validation.constraints.NotBlank;
 
-@Document("product")
+@Document("Products")
 public class Product {
 
     @Transient
     public static final String SEQUENCE_NAME = "product_sequence";
 
     @Id
-    private Long id;
+    private String id;
 
     @NotBlank(message = "* Product Name is required")
     private String name;
@@ -34,11 +34,11 @@ public class Product {
 
     private String[] color;
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 

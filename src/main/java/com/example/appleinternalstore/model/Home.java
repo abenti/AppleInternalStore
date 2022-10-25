@@ -5,10 +5,10 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.validation.constraints.NotBlank;
 
-@Document("product")
+@Document("Home")
 public class Home {
     @Id
-    private Long id;
+    private String id;
 
     @NotBlank(message = "* Home Name is required")
     private String name;
@@ -19,11 +19,11 @@ public class Home {
     @NotBlank(message = "* Home Images are required")
     private String image;
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
