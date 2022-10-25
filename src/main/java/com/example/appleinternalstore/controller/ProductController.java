@@ -21,8 +21,8 @@ public class ProductController {
     @Autowired
     private ProductService productService;
 
-    @GetMapping("/products")
-    public List<Product> getProductsByCategory(@RequestParam String category) {
+    @GetMapping("/productList/{category}")
+    public List<Product> getProductsByCategory(@PathVariable(value = "category") String category) {
         return productService.getProductsByCategory(category);
     }
 

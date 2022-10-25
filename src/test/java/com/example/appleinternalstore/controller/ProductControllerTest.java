@@ -19,9 +19,8 @@ public class ProductControllerTest {
 
     @Test
     public void shouldReturnProductsFilteredByCategory() throws Exception {
-        this.mockMvc.perform(get("/products")
-                        .contentType("application/json")
-                        .param("category", "iphone"))
+        this.mockMvc.perform(get("/productList/iphone")
+                        .contentType("application/json"))
                 .andDo(print()).andExpect(status().isOk());
     }
 
