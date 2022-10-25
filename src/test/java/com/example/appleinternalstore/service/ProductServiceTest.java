@@ -25,18 +25,18 @@ public class ProductServiceTest {
     @Test
     public void whenValidName_thenEmployeeShouldBeFound() {
         Product mockProduct = new Product();
-        mockProduct.setProductDescription("Latest iphone13 pro max");
-        mockProduct.setProductDiscount(0.2f);
-        mockProduct.setProductCategory("iphone");
-        mockProduct.setProductImages("/path/to/image");
-        mockProduct.setProductName("Iphone 13 Prox Max");
+        mockProduct.setDescription("Latest iphone13 pro max");
+        mockProduct.setPrice(2000);
+        mockProduct.setCategory("iphone");
+        mockProduct.setImage("/path/to/image");
+        mockProduct.setName("Iphone 13 Prox Max");
         ArrayList list = new ArrayList();
         list.add(mockProduct);
-        Mockito.doReturn(list).when(productRepository).findByProductCategory("iphone");
+        Mockito.doReturn(list).when(productRepository).findByCategory("iphone");
 
         List<Product> actualProductList = productService.getProductsByCategory("iphone");
         assertThat(actualProductList).isNotEqualTo(null);
         assertThat(actualProductList.size()).isEqualTo(1);
-        assertThat(actualProductList.get(0).getProductName()).isEqualTo("Iphone 13 Prox Max");
+        assertThat(actualProductList.get(0).getName()).isEqualTo("Iphone 13 Prox Max");
     }
 }

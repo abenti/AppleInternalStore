@@ -1,98 +1,100 @@
 package com.example.appleinternalstore.model;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
 
 @Document("product")
 public class Product {
+
+    @Transient
+    public static final String SEQUENCE_NAME = "product_sequence";
+
     @Id
-    private int id;
+    private Long id;
 
     @NotBlank(message = "* Product Name is required")
-    private String productName;
-
-    private Cart cart;
+    private String name;
 
     @NotBlank(message = "* Product Price is required")
-    private float productPrice;
+    private float price;
 
     @NotBlank(message = "* Product Description is required")
-    private String productDescription;
+    private String description;
 
     @NotBlank(message = "* Product Images are required")
-    @Size(max = 3)
-    private String productImages;
+    private String image;
 
     @NotBlank(message = "* Product Category is required")
-    private String productCategory;
+    private String category;
 
-    @NotBlank(message = "* Product Discount is required")
-    private float productDiscount;
+    private String[] size;
 
-    public Cart getCart() {
-        return cart;
-    }
+    private String[] color;
 
-    public void setCart(Cart cart) {
-        this.cart = cart;
-    }
-
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public String getProductName() {
-        return productName;
+    public String getName() {
+        return name;
     }
 
-    public void setProductName(String productName) {
-        this.productName = productName;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public float getProductPrice() {
-        return productPrice;
+    public float getPrice() {
+        return price;
     }
 
-    public void setProductPrice(float productPrice) {
-        this.productPrice = productPrice;
+    public void setPrice(float price) {
+        this.price = price;
     }
 
-    public String getProductDescription() {
-        return productDescription;
+    public String getDescription() {
+        return description;
     }
 
-    public void setProductDescription(String productDescription) {
-        this.productDescription = productDescription;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public String getProductImages() {
-        return productImages;
+    public String getImage() {
+        return image;
     }
 
-    public void setProductImages(String productImages) {
-        this.productImages = productImages;
+    public void setImage(String image) {
+        this.image = image;
     }
 
-    public String getProductCategory() {
-        return productCategory;
+    public String getCategory() {
+        return category;
     }
 
-    public void setProductCategory(String productCategory) {
-        this.productCategory = productCategory;
+    public void setCategory(String category) {
+        this.category = category;
     }
 
-    public float getProductDiscount() {
-        return productDiscount;
+    public String[] getSize() {
+        return size;
     }
 
-    public void setProductDiscount(float productDiscount) {
-        this.productDiscount = productDiscount;
+    public void setSize(String[] size) {
+        this.size = size;
+    }
+
+    public String[] getColor() {
+        return color;
+    }
+
+    public void setColor(String[] color) {
+        this.color = color;
     }
 }

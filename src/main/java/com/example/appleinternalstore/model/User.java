@@ -1,6 +1,7 @@
 package com.example.appleinternalstore.model;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.validation.constraints.Email;
@@ -10,8 +11,12 @@ import javax.validation.constraints.Size;
 
 @Document("user")
  class User {
+
+    @Transient
+    public static final String SEQUENCE_NAME = "user_sequence";
+
     @Id
-    private Integer id;
+    private Long id;
 
     @NotBlank(message = "* Email is required")
     @Email(message="{errors.invalid_email}")
@@ -34,11 +39,11 @@ import javax.validation.constraints.Size;
     @Size(min=8)
     private String password;
 
-   public Integer getId() {
+   public Long getId() {
       return id;
    }
 
-   public void setId(Integer id) {
+   public void setId(Long id) {
       this.id = id;
    }
 

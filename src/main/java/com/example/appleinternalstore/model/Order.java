@@ -1,6 +1,7 @@
 package com.example.appleinternalstore.model;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.List;
@@ -8,9 +9,11 @@ import java.util.List;
 @Document("order")
 public class Order {
 
+    @Transient
+    public static final String SEQUENCE_NAME = "order_sequence";
 
     @Id
-    private int id;
+    private Long id;
 
     private String userId;
 
@@ -28,11 +31,11 @@ public class Order {
         this.orderProducts = orderProducts;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
