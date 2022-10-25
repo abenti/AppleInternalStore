@@ -10,7 +10,7 @@ import javax.validation.constraints.Size;
 
 
 @Document("user")
- class User {
+public class User {
 
     @Transient
     public static final String SEQUENCE_NAME = "user_sequence";

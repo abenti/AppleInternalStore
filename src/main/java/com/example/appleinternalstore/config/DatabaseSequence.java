@@ -1,4 +1,4 @@
-package com.example.appleinternalstore.model;
+package com.example.appleinternalstore.config;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;

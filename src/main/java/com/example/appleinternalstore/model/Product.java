@@ -13,7 +13,7 @@ public class Product {
     public static final String SEQUENCE_NAME = "product_sequence";
 
     @Id
-    private String id;
+    private Long id;
 
     @NotBlank(message = "* Product Name is required")
     private String name;
@@ -34,11 +34,11 @@ public class Product {
 
     private String[] color;
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

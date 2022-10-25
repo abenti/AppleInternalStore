@@ -17,7 +17,7 @@ public class Cart {
 
    private List<Product> productList;
 
-   private String userId;
+   private Integer quantity;
 
    public Long getId() {
       return id;
@@ -35,11 +35,11 @@ public class Cart {
       this.productList = productList;
    }
 
-   public String getUserId() {
-      return userId;
+   public Integer getQuantity() {
+      return quantity;
    }
 
-   public void setUserId(String userId) {
-      this.userId = userId;
+   public void setQuantity(Integer quantity) {
+      this.quantity = quantity;
    }
 }

@@ -27,9 +27,9 @@ public class ProductRepositoryTest {
         mockProduct.setDescription("Latest iphone13 pro max");
         mockProduct.setPrice(2000);
         mockProduct.setCategory("iphone");
-        mockProduct.setImage("/path/to/image");
+        mockProduct.setImage("/path/to/image/13");
         mockProduct.setName("Iphone 13 Prox Max");
-        mockProduct.setId(String.valueOf(generatorService.generateSequence(Product.SEQUENCE_NAME)));
+        mockProduct.setId(generatorService.generateSequence(Product.SEQUENCE_NAME));
         repository.save(mockProduct);
 
         List<Product> products = repository.findAll();
