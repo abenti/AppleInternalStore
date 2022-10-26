@@ -15,14 +15,10 @@ public class Order {
     public static final String SEQUENCE_NAME = "order_sequence";
 
     @Id
-    private String id;
-
-    private String userId;
+    private Long id;
 
     private List<OrderProduct> orderProducts;
 
     private float amount;
-
-    private String status;
 
 }

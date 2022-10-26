@@ -48,7 +48,7 @@ public class CartController {
     ResponseEntity deleteCartItem(@PathVariable Long id) {
         Boolean isDeletedSuccessful = cartService.deleteCartItem(id);
         if (isDeletedSuccessful) return new ResponseEntity(HttpStatus.OK);
-        else return new ResponseEntity("Cart id might be wrong. Please check again.", HttpStatus.NO_CONTENT);
+        else return new ResponseEntity("No matching cart found for " + id + ". Please check again. Please check again.", HttpStatus.NO_CONTENT);
     }
 
     @DeleteMapping("/deleteAll")
