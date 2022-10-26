@@ -1,11 +1,13 @@
 package com.example.appleinternalstore.model;
 
+import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.validation.constraints.NotBlank;
 
 @Document("Home")
+@Data
 public class Home {
     @Id
     private String id;
