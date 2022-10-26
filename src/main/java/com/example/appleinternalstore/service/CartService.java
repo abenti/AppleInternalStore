@@ -21,4 +21,15 @@ public class CartService {
     public Optional<Cart> save(Cart cart) {
         return Optional.of(repository.save(cart));
     }
+
+    public Boolean updateCart(Cart updateCart){
+        Optional<Cart> result = repository.findById(updateCart.getId());
+        if(result.isEmpty()) return false;
+        else {
+            Cart cart = result.get();
+            cart.setQuantity(updateCart.getQuantity());
+            repository.save(cart);
+            return true;
+        }
+    }
 }

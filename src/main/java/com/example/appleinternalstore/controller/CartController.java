@@ -36,4 +36,12 @@ public class CartController {
         else return new ResponseEntity(result, HttpStatus.OK);
     }
 
+    @PatchMapping
+    public ResponseEntity updateCart(@RequestBody Cart cart) {
+        Boolean isUpdateSuccessful = cartService.updateCart(cart);
+        String errorMessage = "Unprocessable entity. Please check your request body";
+        if (isUpdateSuccessful) return new ResponseEntity(HttpStatus.OK);
+        else return new ResponseEntity(errorMessage, HttpStatus.UNPROCESSABLE_ENTITY);
+    }
+
 }
