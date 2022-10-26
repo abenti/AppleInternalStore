@@ -1,0 +1,39 @@
+package com.example.appleinternalstore.controller;
+
+import com.example.appleinternalstore.model.Cart;
+import com.example.appleinternalstore.service.CartService;
+import com.example.appleinternalstore.service.SequenceGeneratorService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.Optional;
+
+@RestController
+@RequestMapping("/carts")
+public class CartController {
+
+    @Autowired
+    private SequenceGeneratorService sequenceGeneratorService;
+
+    @Autowired
+    private CartService cartService;
+
+    @PostMapping
+    public ResponseEntity addToCart(@RequestBody Cart cart) {
+        cart.setId(sequenceGeneratorService.generateSequence(Cart.SEQUENCE_NAME));
+        Optional<Cart> result = cartService.save(cart);
+        if (result.isEmpty()) return new ResponseEntity(HttpStatus.NO_CONTENT);
+        else return new ResponseEntity(result.get(), HttpStatus.OK);
+    }
+
+    @GetMapping
+    ResponseEntity getAllCarts() {
+        List<Cart> result = cartService.getAllCarts();
+        if (result.isEmpty()) return new ResponseEntity(HttpStatus.NO_CONTENT);
+        else return new ResponseEntity(result, HttpStatus.OK);
+    }
+
+}
