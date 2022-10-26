@@ -32,4 +32,17 @@ public class CartService {
             return true;
         }
     }
+
+    public void deleteAll() {
+        repository.deleteAll();
+    }
+
+    public Boolean deleteCartItem(Long id) {
+        Optional<Cart> result = repository.findById(id);
+        if(result.isEmpty()) return false;
+        else {
+            repository.deleteById(id);
+            return true;
+        }
+    }
 }

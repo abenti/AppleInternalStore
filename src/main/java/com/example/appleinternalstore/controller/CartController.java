@@ -44,4 +44,17 @@ public class CartController {
         else return new ResponseEntity(errorMessage, HttpStatus.UNPROCESSABLE_ENTITY);
     }
 
+    @DeleteMapping("/{id}")
+    ResponseEntity deleteCartItem(@PathVariable Long id) {
+        Boolean isDeletedSuccessful = cartService.deleteCartItem(id);
+        if (isDeletedSuccessful) return new ResponseEntity(HttpStatus.OK);
+        else return new ResponseEntity("Cart id might be wrong. Please check again.", HttpStatus.NO_CONTENT);
+    }
+
+    @DeleteMapping("/deleteAll")
+    ResponseEntity deleteAllCartItems() {
+        cartService.deleteAll();
+        return new ResponseEntity(HttpStatus.OK);
+    }
+
 }
