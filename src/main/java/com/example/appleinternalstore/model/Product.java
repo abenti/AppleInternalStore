@@ -2,7 +2,6 @@ package com.example.appleinternalstore.model;
 
 import lombok.Data;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.validation.constraints.NotBlank;
@@ -11,11 +10,8 @@ import javax.validation.constraints.NotBlank;
 @Data
 public class Product {
 
-    @Transient
-    public static final String SEQUENCE_NAME = "product_sequence";
-
     @Id
-    private Long id;
+    private String id;
 
     @NotBlank(message = "* Product Name is required")
     private String name;

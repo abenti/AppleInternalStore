@@ -24,7 +24,7 @@ public class OrderService {
         return Optional.of(repository.save(order));
     }
 
-    public Boolean deleteOrderById(Long id) {
+    public Boolean deleteOrderById(String id) {
         Optional<Order> result = repository.findById(id);
         if(result.isEmpty()) return false;
         else {

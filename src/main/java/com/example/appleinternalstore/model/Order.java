@@ -2,7 +2,6 @@ package com.example.appleinternalstore.model;
 
 import lombok.Data;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.List;
@@ -11,11 +10,8 @@ import java.util.List;
 @Data
 public class Order {
 
-    @Transient
-    public static final String SEQUENCE_NAME = "order_sequence";
-
     @Id
-    private Long id;
+    private String id;
 
     private List<OrderProduct> orderProducts;
 

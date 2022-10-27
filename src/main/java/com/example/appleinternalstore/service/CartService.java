@@ -37,7 +37,7 @@ public class CartService {
         repository.deleteAll();
     }
 
-    public Boolean deleteCartItem(Long id) {
+    public Boolean deleteCartItem(String id) {
         Optional<Cart> result = repository.findById(id);
         if(result.isEmpty()) return false;
         else {
