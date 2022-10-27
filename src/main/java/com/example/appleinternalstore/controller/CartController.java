@@ -19,7 +19,6 @@ public class CartController {
 
     @PostMapping
     public ResponseEntity addToCart(@RequestBody Cart cart) {
-//        cart.setId(sequenceGeneratorService.generateSequence(Cart.SEQUENCE_NAME));
         Optional<Cart> result = cartService.save(cart);
         if (result.isEmpty()) return new ResponseEntity(HttpStatus.NO_CONTENT);
         else return new ResponseEntity(result.get(), HttpStatus.OK);

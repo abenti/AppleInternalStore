@@ -1,24 +1,32 @@
 package com.example.appleinternalstore.controller;
 
-import com.example.appleinternalstore.model.Home;
-import com.example.appleinternalstore.service.HomeService;
-import org.springframework.web.bind.annotation.GetMapping;
+import com.example.appleinternalstore.model.User;
+import com.example.appleinternalstore.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class UserController {
 
-    HomeService homeService;
+    @Autowired
+    UserService userService;
 
-    public UserController(HomeService service) {
-        homeService = service;
+    @PostMapping("/login")
+    public User login(@RequestBody User user) {
+        return userService.findUser(user);
     }
 
-//    @GetMapping("/login")
-//    public List<Home> getHome() {
-//        return homeService.getAllHomeCategories();
-//    }
+    @PostMapping("/user")
+    public ResponseEntity createUser(@RequestBody User user) {
+        Optional<User> result = userService.save(user);
+        if (result.isEmpty()) return new ResponseEntity(HttpStatus.NO_CONTENT);
+        else return new ResponseEntity(result.get(), HttpStatus.OK);
+    }
 
 }
