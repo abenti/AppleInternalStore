@@ -1,8 +1,6 @@
 package com.example.appleinternalstore.service;
 
-import com.example.appleinternalstore.model.Cart;
 import com.example.appleinternalstore.model.Order;
-import com.example.appleinternalstore.repository.CartRepository;
 import com.example.appleinternalstore.repository.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,7 +24,7 @@ public class OrderService {
 
     public Boolean deleteOrderById(String id) {
         Optional<Order> result = repository.findById(id);
-        if(result.isEmpty()) return false;
+        if (result.isEmpty()) return false;
         else {
             repository.deleteById(id);
             return true;
