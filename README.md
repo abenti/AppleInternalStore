@@ -9,4 +9,4 @@ The user can clear out the cart, put a product in the cart as long as he/she is 
 https://github.com/abenti/AppleInternalStore.git
 
 https://github.com/abenti/AppleInternalUI.git
-https://user-images.githubusercontent.com/84464338/198835156-9dbda17b-2ed9-4929-9e0f-eefcce6642d9.png)
+
